@@ -186,7 +186,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 const DEBUG = false;
 
 const instance = axios.create({
-  baseURL: API_BASE_URL + '/api/v1',
+  baseURL: API_BASE_URL,
   timeout: 2000,
 });
 
