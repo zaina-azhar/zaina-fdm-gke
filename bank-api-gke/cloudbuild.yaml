@@ -3,7 +3,7 @@ steps:
   args: [
     'build',
     '-t',
-    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend',
+    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend',
     '.'
   ]
   dir: bank-api-gke
@@ -11,7 +11,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
     'push',
-    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend'
+    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
   ]
 
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -26,7 +26,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=monitoring-cluster'
 
 images:
-- 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend'
+- 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
 
 options:
   logging: CLOUD_LOGGING_ONLY
