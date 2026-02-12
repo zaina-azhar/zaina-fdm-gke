@@ -2,10 +2,11 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
     'build',
+    '-f',
+    'Dockerfile-before-https-first',
     '-t',
     'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend',
-    '-f',
-    'Dockerfile-before-https-first'
+    '.'
   ]
   dir: bank-web-gke
 
@@ -19,7 +20,7 @@ steps:
   args: [
     'apply',
     '-f',
-    'kubernetes/frontend.yaml'
+    'frontend.yaml'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
