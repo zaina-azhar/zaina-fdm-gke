@@ -23,7 +23,7 @@ steps:
   dir: bank-api-gke
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=monitoring-cluster'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=zaina-bank-cluster'
 
 images:
 - 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
