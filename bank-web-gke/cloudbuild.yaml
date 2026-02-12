@@ -22,6 +22,7 @@ steps:
     '-f',
     'kubernetes/frontend.yaml'
   ]
+  dir: bank-web-gke
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=monitoring-cluster'
