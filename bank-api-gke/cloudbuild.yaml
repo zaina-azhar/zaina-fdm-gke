@@ -1,0 +1,31 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t',
+    'northamerica-northeast2-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend',
+    '.'
+  ]
+  dir: bank-api-gke
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'push',
+    'northamerica-northeast2-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
+  ]
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+    'apply',
+    '-f',
+    'kubernetes/backend.yaml'
+  ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=monitoring-cluster'
+
+images:
+- 'northamerica-northeast2-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
