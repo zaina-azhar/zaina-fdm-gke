@@ -5,7 +5,7 @@ steps:
     '-t',
     'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend',
     '-f',
-    './Dockerfile-before-https-first'
+    'Dockerfile-before-https-first'
   ]
   dir: bank-web-gke
 
