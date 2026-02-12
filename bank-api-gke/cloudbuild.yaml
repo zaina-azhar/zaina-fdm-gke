@@ -3,7 +3,7 @@ steps:
   args: [
     'build',
     '-t',
-    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend',
+    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend:${COMMIT_SHA}',
     '.'
   ]
   dir: bank-api-gke
@@ -11,22 +11,18 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
     'push',
-    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
+    'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend:${COMMIT_SHA}'
   ]
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: [
-    'apply',
-    '-f',
-    'backend.yaml'
-  ]
-  dir: bank-api-gke
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=monitoring-cluster'
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args: ['run', 
+    '--file', 'bank-api-gke/backend.yaml', 
+    '--image', 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend:${COMMIT_SHA}', 
+    '--location', 'us-central1-a', 
+    '--cluster', 'monitoring-cluster']
 
 images:
-- 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend'
+- 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-backend:${COMMIT_SHA}'
 
 options:
   logging: CLOUD_LOGGING_ONLY
