@@ -19,7 +19,7 @@ steps:
 
 - name: "gcr.io/cloud-builders/gke-deploy"
   args: ['run', 
-    '--file', 'bank-web-gke/frontend.yaml', 
+    '--filename', 'bank-web-gke/frontend.yaml', 
     '--image', 'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend:${COMMIT_SHA}', 
     '--location', 'us-central1-a', 
     '--cluster', 'monitoring-cluster']
