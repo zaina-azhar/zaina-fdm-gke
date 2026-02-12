@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: zaina-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: zaina-frontend
     spec:
       containers:
       - name: frontend
@@ -25,7 +25,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: frontend
+    app: zaina-frontend
   ports:
   - port: 80
     targetPort: 80
