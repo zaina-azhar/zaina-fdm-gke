@@ -8,6 +8,7 @@ steps:
     'us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend',
     '.'
   ]
+  
   dir: bank-web-gke
 - name: 'gcr.io/cloud-builders/docker'
   args: [
