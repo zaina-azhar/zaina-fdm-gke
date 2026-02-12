@@ -16,7 +16,7 @@ spec:
       - name: frontend
         image: us-central1-docker.pkg.dev/gcp-class-14/zainaazhar-repo/zaina-bank-frontend
         ports:
-        - containerPort: 80
+        - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +27,5 @@ spec:
   selector:
     app: zaina-frontend
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8000
+    targetPort: 8000
