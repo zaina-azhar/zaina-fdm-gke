@@ -18,7 +18,7 @@ steps:
   args: [
     'apply',
     '-f',
-    'backend.yaml'
+    'kubernetes/backend.yaml'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
