@@ -18,7 +18,7 @@ steps:
   args: [
     'apply',
     '-f',
-    'kubernetes/backend.yaml'
+    'backend.yaml'
   ]
   dir: bank-api-gke
   env:

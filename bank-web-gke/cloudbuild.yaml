@@ -20,7 +20,7 @@ steps:
   args: [
     'apply',
     '-f',
-    'kubernetes/frontend.yaml'
+    'frontend.yaml'
   ]
   dir: bank-web-gke
   env:
